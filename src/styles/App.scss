@@ -1,0 +1,93 @@
+@import "common";
+
+.app-container {
+  display: grid;
+  grid-template-areas:
+          "header"
+          "main"
+          "footer";
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  grid-area: header;
+
+  h1 {
+    margin-left: 2%;
+    width: 100%;
+    color: $page-font-color;
+  }
+}
+
+main {
+  margin: 50px 0;
+
+  grid-area: main;
+
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 0 15px;
+    background-color: $background-color;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+
+    textarea {
+      width: 80%;
+      height: 150px;
+      padding: 15px;
+      margin: 0;
+      margin-bottom: 8px;
+      @include fillable-field;
+    }
+  }
+
+  section:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+footer {
+  height: 10%;
+  padding: 10px 15px 0;
+
+  grid-area: footer;
+
+  p {
+    color: $page-font-color;
+    text-align: right;
+    margin-right: 10%;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 0;
+
+    section {
+      margin-top: 50px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    section:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+}
